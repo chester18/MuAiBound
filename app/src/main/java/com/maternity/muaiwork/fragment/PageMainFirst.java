@@ -3,6 +3,7 @@ package com.maternity.muaiwork.fragment;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.andview.refreshview.XRefreshView;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -40,10 +42,18 @@ import java.util.List;
  */
 @ContentView(R.layout.fragment_main_first)
 public class PageMainFirst extends BaseFragment {
+    @ViewInject(R.id.headRefresh)
+    XRefreshView refreshView;
     @ViewInject(R.id.frag_1_list)
     ListView orderList;
     @ViewInject(R.id.adv_Image)
     ImageView advImage;
+    public static long lastRefreshTime=0;
+    boolean isLastPage=false;
+    int refreshStatus=0;//0:首次载入，1下拉刷新，2上拉更多
+    int type=0;
+    int size=20;
+    int page=1;
     BaseAdapter orderAdaper=new BaseAdapter() {
         @Override
         public int getCount() {
@@ -79,17 +89,75 @@ public class PageMainFirst extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v= x.view().inject(this, inflater, container);
+        initRef();
         needs=new ArrayList<>();
 //        needs.add(new NeedInfoModel());
         orderList.setAdapter(orderAdaper);
-        JsonObject ojb=new JsonObject();
-        ojb.addProperty("pageNumber",1);
-        ojb.addProperty("pageSize",20);
+
         x.image().bind(advImage,CommonNetString.advUrl);
-        sendPost(CommonNetString.getOrderList,ojb,"信息读取中...",100);
+
+
         return v;
     }
-//    @Event(value = R.id.frag_1_mydate,type = View.OnClickListener.class)
+
+    private void initRef() {
+        refreshView.restoreLastRefreshTime(lastRefreshTime);
+        refreshView.setXRefreshViewListener(new XRefreshView.XRefreshViewListener() {
+
+
+            @Override
+            public void onRefresh() {
+
+            }
+
+            @Override
+            public void onRefresh(boolean isPullDown) {
+                new Handler().postDelayed(new Runnable() {
+                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                    @Override
+                    public void run() {
+
+                        needs.clear();
+                        page=1;
+                        loadData();
+//                        refreshView.stopRefresh();          //停止下拉刷新UI
+//                        lastRefreshTime = refreshView.getLastRefreshTime();
+                    }
+                }, 1000);
+            }
+
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public void onLoadMore(boolean isSilence) {
+                page++;
+                loadData();
+            }
+
+
+
+            @Override
+            public void onRelease(float direction) {
+
+            }
+
+            @Override
+            public void onHeaderMove(double headerMovePercent, int offsetY) {
+
+            }
+        });
+        refreshView.setPullRefreshEnable(true);
+        refreshView.setPullLoadEnable(true);
+    }
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void loadData()
+    {
+        JsonObject ojb=new JsonObject();
+        ojb.addProperty("pageNumber",page);
+        ojb.addProperty("pageSize",size);
+        sendPost(CommonNetString.getOrderList,ojb,"信息读取中...",100);
+    }
+
+    //    @Event(value = R.id.frag_1_mydate,type = View.OnClickListener.class)
 //    private void mydateClick(View v)        //我的档期
 //    {
 ////        showToast("我的档期");
@@ -124,14 +192,16 @@ public class PageMainFirst extends BaseFragment {
     @Override
     protected void getResult(String result, int tag) {
         super.getResult(result, tag);
-        try {
-            JsonObject root=new JsonParser().parse(result).getAsJsonObject();
-            JsonArray needlist=root.getAsJsonArray("data");
-            for (int i=0;i<needlist.size();i++)
-                needs.add(new NeedInfoModel(needlist.get(i).getAsJsonObject()));
-            orderAdaper.notifyDataSetChanged();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (tag==100) {
+            try {
+                JsonObject root = new JsonParser().parse(result).getAsJsonObject();
+                JsonArray needlist = root.getAsJsonArray("data");
+                for (int i = 0; i < needlist.size(); i++)
+                    needs.add(new NeedInfoModel(needlist.get(i).getAsJsonObject()));
+                orderAdaper.notifyDataSetChanged();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -140,10 +210,10 @@ public class PageMainFirst extends BaseFragment {
     public void reflashFragment() {
         super.reflashFragment();
         needs=new ArrayList<NeedInfoModel>();
-        JsonObject ojb=new JsonObject();
-        ojb.addProperty("pageNumber",1);
-        ojb.addProperty("pageSize",20);
+
         x.image().bind(advImage,CommonNetString.advUrl);
-        sendPost(CommonNetString.getOrderList,ojb,"信息读取中...",100);
+        needs.clear();
+        page=1;
+        loadData();
     }
 }

@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.maternity.muaiwork.R;
 import com.maternity.muaiwork.activity.CBaseActivity;
+import com.maternity.muaiwork.common.PubFunction;
 import com.maternity.muaiwork.fragment.BaseFragment;
 import com.maternity.muaiwork.fragment.PageMainFirst;
 import com.maternity.muaiwork.fragment.PageMainForth;
@@ -125,7 +126,7 @@ public class MuAiMainTabActivity extends CBaseActivity implements BaseFragment.S
                     f=new PageMainThird();
                     break;
                 case 3:
-                    f=new PageMainLogin(); //new PageMainForth();
+                    f= PubFunction.userid>0?new PageMainForth(): new PageMainLogin(); //new PageMainForth();
                     break;
                 default:
                     f=new BaseFragment();

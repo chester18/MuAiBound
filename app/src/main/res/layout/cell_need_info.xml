@@ -1,102 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="horizontal"
-              android:layout_width="match_parent"
-              android:gravity="center"
-              android:layout_height="100dp">
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginBottom="4dp"
+    android:layout_marginTop="4dp"
+    android:gravity="center"
+    android:orientation="horizontal">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:gravity="center">
-
-        <TextView
-            android:text="11.23"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/cell_due_udate"
-            android:gravity="center"/>
-
-        <TextView
-            android:text="预产期"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/cell_due_ude"
-            android:gravity="center"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
         android:layout_weight="1"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <TextView
-                android:text="￥9000"
+                android:id="@+id/cell_due_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/cell_due_price"
                 android:layout_marginLeft="2dp"
+                android:text="￥：9000"
                 android:textColor="@color/orange1"
                 android:textSize="18sp"
-                android:textStyle="normal|bold"/>
+                android:textStyle="normal|bold" />
 
-            <TextView
-                android:text="到手价"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/cell_due_pricetype"
-                android:layout_marginLeft="4dp"/>
         </LinearLayout>
 
         <TextView
-            android:text="上海 | 42天 | 特级"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/cell_due_city"
-            android:textColor="@color/darkGray"
-            android:layout_marginTop="2dp"/>
-
-        <TextView
-            android:text="要求：干净卫生,勤快,有经验,客户预产期"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/cell_due_need"
-            android:textColor="@color/darkGray"
-            android:layout_marginTop="2dp"/>
+            android:layout_marginTop="2dp"
+            android:text="上海 | 42天 | 特级"
+            android:textColor="@color/darkGray" />
 
         <TextView
-            android:text="2017-3-12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/cell_due_senddate"
-            android:textStyle="italic"
-            android:layout_marginTop="2dp"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="预产期：2017-3-12"
+            android:textColor="@color/darkGray" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:gravity="center">
+        android:layout_weight="4"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
-            android:text="抢单"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
             android:id="@+id/cell_due_start"
-            android:background="@drawable/line_radio25_blue"
-            android:textColor="@color/CW"
-            android:gravity="center"/>
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:background="@drawable/radio5_select_blue"
+            android:gravity="center"
+            android:text="抢单"
+            android:textColor="@color/CW" />
     </LinearLayout>
 </LinearLayout>

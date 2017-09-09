@@ -64,24 +64,25 @@ public class PageMainLogin extends BaseFragment {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void afterEvent(int i, int i1, Object o) {
-
+                Message msg=new Message();
                 if (i1 == SMSSDK.RESULT_COMPLETE) {
                     //回调完成
                     if (i == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
                         //提交验证码成功
-
-                        JsonObject ojs=new JsonObject();
-                        ojs.addProperty("name",useName.getText().toString());
-
-                        sendPost(CommonNetString.maLogin,ojs,"登录中...",1);
+msg.what=30;
+                        handler.sendMessage(msg);
 
                     }else if (i == SMSSDK.EVENT_GET_VERIFICATION_CODE){
                         //获取验证码成功
+                        msg.what=20;
+                        handler.sendMessage(msg);
 
                     }else if (i ==SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES){
                         //返回支持发送验证码的国家列表
                     }
                 }else{
+                    msg.what=40;
+                    handler.sendMessage(msg);
                     ((Throwable)o).printStackTrace();
                 }
             }
@@ -108,23 +109,7 @@ public class PageMainLogin extends BaseFragment {
         }
         //发送验证码
         SMSSDK.getVerificationCode("86",useName.getText().toString());
-        DialogSuccess dialogSuccess= (DialogSuccess) DialogFactry.instance(getActivity(), DialogFactry.DIA_SUCC, 100, "", "发送成功", new DialogCallBackInterface() {
-            @Override
-            public void selectShure(int tag, Object result) {
 
-            }
-
-            @Override
-            public void selectCancle(int tag) {
-
-            }
-
-            @Override
-            public void selectIndex(int tag, int index, Object object) {
-
-            }
-        });
-        dialogSuccess.show();
         countTime();
 
     }
@@ -162,23 +147,64 @@ public class PageMainLogin extends BaseFragment {
         stimer.schedule(new TimerTask() {
             @Override
             public void run() {
+                Message msg=new Message();
+                msg.what=10;
                 handler.sendMessage(new Message());
             }
         },1000,1000);
     }
 
     Handler handler=new Handler(){
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            count--;
-            if (count>0){
-                sendBtn.setText(count+"");
-            }else {
-                sendBtn.setText("重发");
-                stimer.cancel();
-            }
+            switch (msg.what) {
+                case 10: {
+                    count--;
+                    if (count > 0) {
+                        sendBtn.setText(count + "");
+                    } else {
+                        sendBtn.setText("重发");
+                        stimer.cancel();
+                    }
+                    break;
+                }
+                case 20:{
+                    DialogSuccess dialogSuccess= (DialogSuccess) DialogFactry.instance(getActivity(), DialogFactry.DIA_SUCC, 100, "", "发送成功", new DialogCallBackInterface() {
+                        @Override
+                        public void selectShure(int tag, Object result) {
 
+                        }
+
+                        @Override
+                        public void selectCancle(int tag) {
+
+                        }
+
+                        @Override
+                        public void selectIndex(int tag, int index, Object object) {
+
+                        }
+                    });
+                    dialogSuccess.show();
+                    break;
+                }
+                case 30:
+                {
+                    JsonObject ojs=new JsonObject();
+                    ojs.addProperty("name",useName.getText().toString());
+
+                    sendPost(CommonNetString.maLogin,ojs,"登录中...",1);
+                    break;
+                }
+                case 40:
+                    //发送失败
+                    break;
+                default:
+                    break;
+
+            }
 
         }
     };
