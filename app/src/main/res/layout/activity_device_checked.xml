@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/headlay"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/mL"
+        android:gravity="center">
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:id="@+id/dev_backICO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:gravity="center"
+            android:text="{ion-chevron-left}"
+            android:textAlignment="center"
+            android:textColor="@color/CW"
+            android:textSize="32dp"></com.joanzapata.iconify.widget.IconTextView>
+
+        <TextView
+            android:id="@+id/dev_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="设备领用确认"
+            android:textColor="@color/CW"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/dev_select_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:background="@color/clean"
+            android:text="全选"
+            android:textColor="@color/CW" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/dev_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/dev_sublay"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/headlay" />
+
+    <LinearLayout
+        android:id="@+id/dev_sublay"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dev_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/line_radio25_blue"
+            android:text="提交"
+            android:textColor="@color/CW" />
+    </LinearLayout>
+
+</RelativeLayout>

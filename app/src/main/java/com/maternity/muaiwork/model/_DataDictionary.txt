@@ -1,0 +1,405 @@
+Table: AnswerPaper
+------------+--------------+------+-----+---------+---------
+ Field      | Type         | Null | Key | Default | Remarks 
+------------+--------------+------+-----+---------+---------
+ id         | INT(10)      | NO   | PRI |         |         
+ createDate | DATETIME(19) | YES  |     |         | 创建时间    
+ submitDate | DATETIME(19) | YES  |     |         | 提交时间    
+ command    | VARCHAR(255) | YES  |     | empty   | 通过后执行指令 
+ User_id    | INT(10)      | NO   | PRI | 0       | 答题用户号   
+ Paper_id   | INT(10)      | NO   | PRI | 0       | 试卷号     
+ Status_id  | INT(10)      | NO   | PRI | 0       | 状态号     
+ hasReport  | BIT          | YES  |     | 0       | 是否统计到总分 
+------------+--------------+------+-----+---------+---------
+
+Table: AnswerQuestion
+----------------+---------------+------+-----+---------+---------
+ Field          | Type          | Null | Key | Default | Remarks 
+----------------+---------------+------+-----+---------+---------
+ id             | INT(10)       | NO   | PRI |         | 回答id    
+ result         | VARCHAR(2048) | YES  |     |         | 答案      
+ file           | VARCHAR(255)  | YES  |     |         | 附带文件    
+ submitTime     | DATETIME(19)  | YES  |     |         | 提交时间    
+ other          | VARCHAR(1024) | YES  |     |         | 其他      
+ Question_id    | INT(10)       | YES  |     | 0       |         
+ AnswerPaper_id | INT(10)       | YES  |     |         |         
+----------------+---------------+------+-----+---------+---------
+
+Table: Certificate
+-----------------------+-------------+------+-----+---------+---------
+ Field                 | Type        | Null | Key | Default | Remarks 
+-----------------------+-------------+------+-----+---------+---------
+ id                    | INT(10)     | NO   | PRI |         | 证书
+     
+ userId                | INT(10)     | YES  |     |         | 用户id    
+ Organization          | VARCHAR(45) | YES  |     |         | 发证机构    
+ CertificateName       | VARCHAR(45) | YES  |     |         | 证书名称    
+ CertificateGrade      | VARCHAR(45) | YES  |     |         | 等级      
+ CertificateDate       | VARCHAR(45) | YES  |     |         | 发证日期    
+ CertificateFaceImage  | VARCHAR(45) | YES  |     |         | 正面照     
+ CertificateContentImg | VARCHAR(45) | YES  |     |         | 内容照
+    
+-----------------------+-------------+------+-----+---------+---------
+
+Table: ChildInfo
+-------------+-------------+------+-----+---------+---------
+ Field       | Type        | Null | Key | Default | Remarks 
+-------------+-------------+------+-----+---------+---------
+ id          | INT(10)     | NO   | PRI |         |         
+ userId      | INT(10)     | NO   |     |         | 妈妈用户id  
+ second      | VARCHAR(45) | YES  |     |         | 是否二胎（1.是 2.不是）
+ twoChild    | VARCHAR(45) | YES  |     |         | 是否双胎（1.单 2.双）
+ Development | VARCHAR(45) | YES  |     |         | 发育状态（1.正常 2.偏大 3偏小 4其他）
+-------------+-------------+------+-----+---------+---------
+
+Table: CustomEvaluate
+---------------+---------------+------+-----+---------+---------
+ Field         | Type          | Null | Key | Default | Remarks 
+---------------+---------------+------+-----+---------+---------
+ id            | INT(10)       | NO   | PRI |         | 客户评分
+   
+ user_id       | INT(10)       | YES  |     |         | 月嫂用户id  
+ createDate    | DATETIME(19)  | YES  |     |         | 创建日期    
+ ServerBearing | VARCHAR(45)   | YES  |     |         | 服务态度    
+ ServerCase    | VARCHAR(45)   | YES  |     |         | 服务情况    
+ ServerDinner  | VARCHAR(45)   | YES  |     |         | 月子正餐、辅餐情况
+ profession    | VARCHAR(45)   | YES  |     |         | 专业度     
+ total         | INT(10)       | YES  |     |         | 总分      
+ customId      | INT(10)       | YES  |     |         | 客户id    
+ mobile        | VARCHAR(45)   | YES  |     |         | 客户电话    
+ ServerDuring  | VARCHAR(1024) | YES  |     |         | 服务时间    
+---------------+---------------+------+-----+---------+---------
+
+Table: FaceTest
+--------+---------+------+-----+---------+---------
+ Field  | Type    | Null | Key | Default | Remarks 
+--------+---------+------+-----+---------+---------
+ id     | INT(10) | NO   | PRI |         | 面试      
+ userId | INT(10) | YES  |     |         |         
+ total  | INT(10) | YES  |     |         | 综合分     
+--------+---------+------+-----+---------+---------
+
+Table: HomeMember
+------------+---------------+------+-----+---------+---------
+ Field      | Type          | Null | Key | Default | Remarks 
+------------+---------------+------+-----+---------+---------
+ id         | INT(10)       | NO   | PRI |         | 家庭成员
+   
+ userId     | INT(10)       | YES  |     |         | 月嫂id    
+ MemberName | VARCHAR(45)   | YES  |     |         | 姓名      
+ Relation   | VARCHAR(45)   | YES  |     |         | 关系      
+ age        | VARCHAR(45)   | YES  |     |         | 年龄      
+ work       | VARCHAR(1024) | YES  |     |         | 工作单位/职务 
+ mobile     | VARCHAR(45)   | YES  |     |         | 联系电话    
+------------+---------------+------+-----+---------+---------
+
+Table: InsurancePolicy
+------------+---------------+------+-----+---------+---------
+ Field      | Type          | Null | Key | Default | Remarks 
+------------+---------------+------+-----+---------+---------
+ id         | INT(10)       | NO   | PRI |         | 保单信息    
+ userId     | VARCHAR(45)   | YES  |     |         | 用户id    
+ PolicyName | VARCHAR(255)  | YES  |     |         | 保险公司名称  
+ PolicyNo   | VARCHAR(45)   | YES  |     |         | 保险单号    
+ PolicyType | VARCHAR(1024) | YES  |     |         | 险种      
+ ExpiryDate | VARCHAR(45)   | YES  |     |         | 有效期     
+ PolicyImg  | VARCHAR(45)   | YES  |     |         | 保险单照片
+  
+------------+---------------+------+-----+---------+---------
+
+Table: MedicalExamination
+-------------+---------------+------+-----+---------+---------
+ Field       | Type          | Null | Key | Default | Remarks 
+-------------+---------------+------+-----+---------+---------
+ id          | INT(10)       | NO   | PRI |         | 体检      
+ userId      | INT(10)       | YES  |     |         | 用户id    
+ MedicalOrga | VARCHAR(45)   | YES  |     |         | 医疗机构    
+ CheckObject | VARCHAR(2048) | YES  |     |         | 检查科目    
+ CheckResual | VARCHAR(45)   | YES  |     |         | 检查结果    
+ CheckDate   | DATE(10)      | YES  |     |         | 体检时间    
+ createDate  | DATETIME(19)  | YES  |     |         | 录入时间    
+ checkImg    | VARCHAR(45)   | YES  |     |         | 体检结果照片  
+-------------+---------------+------+-----+---------+---------
+
+Table: MomInfo
+-------------+--------------+------+-----+---------+---------
+ Field       | Type         | Null | Key | Default | Remarks 
+-------------+--------------+------+-----+---------+---------
+ id          | INT(10)      | NO   | PRI |         | id      
+ userId      | INT(10)      | NO   |     |         | 用户id    
+ name        | VARCHAR(45)  | YES  |     |         | 姓名      
+ origin      | VARCHAR(150) | YES  |     |         | 籍贯      
+ zodiac      | VARCHAR(45)  | YES  |     |         | 属相      
+ birthday    | DATETIME(19) | YES  |     |         | 出生年月    
+ Estimate    | DATETIME(19) | YES  |     |         | 预产期     
+ Nation      | VARCHAR(45)  | YES  |     |         | 民族      
+ phone       | VARCHAR(45)  | YES  |     |         | 手机号     
+ Telephone   | VARCHAR(45)  | YES  |     |         | 固定电话    
+ weixin      | VARCHAR(45)  | YES  |     |         | 微信号     
+ feed        | VARCHAR(45)  | YES  |     |         | 希望喂养方式  
+ big         | VARCHAR(45)  | YES  |     |         | 头胎年纪    
+ room        | VARCHAR(45)  | YES  |     |         | 是否愿意与月嫂同居（1.是 2.否）
+ job         | VARCHAR(45)  | YES  |     |         | 是否在职（1.是 2.否）
+ Package     | VARCHAR(45)  | YES  |     |         | 服务套餐    
+ cycle       | VARCHAR(45)  | YES  |     |         | 服务天数    
+ Hospital    | VARCHAR(150) | YES  |     |         | 分娩医院地址  
+ roomAddress | VARCHAR(150) | YES  |     |         | 坐月子地址   
+ other       | VARCHAR(150) | YES  |     |         | 备注      
+-------------+--------------+------+-----+---------+---------
+
+Table: NeedsList
+-----------------+---------------+------+-----+---------+---------
+ Field           | Type          | Null | Key | Default | Remarks 
+-----------------+---------------+------+-----+---------+---------
+ id              | INT(10)       | NO   | PRI |         | 需求list（首页显示）
+ needsListStatus | INT(10)       | YES  |     |         | 需求状态    
+ serverMoney     | FLOAT(12)     | YES  |     |         | 金额      
+ serverBonus     | VARCHAR(45)   | YES  |     |         | 奖金范围    
+ expectedDate    | DATE(10)      | YES  |     |         | 预产期     
+ currentStatus   | VARCHAR(45)   | YES  |     |         | 当前状态    
+ serverDuring    | VARCHAR(45)   | YES  |     |         | 服务周期    
+ serverLevel     | VARCHAR(45)   | YES  |     |         | 要求等级    
+ city            | VARCHAR(45)   | YES  |     |         | 需求所在地   
+ serverLanguage  | VARCHAR(45)   | YES  |     |         |         
+ other           | VARCHAR(2048) | YES  |     |         | 备注      
+-----------------+---------------+------+-----+---------+---------
+
+Table: OrderList
+------------------+---------------+------+-----+---------+---------
+ Field            | Type          | Null | Key | Default | Remarks 
+------------------+---------------+------+-----+---------+---------
+ id               | INT(10)       | NO   | PRI |         | 订单列表    
+ worker           | INT(10)       | YES  |     | 0       | 工作人员ID  
+ objecter         | INT(10)       | YES  |     | 0       | 服务对象id  
+ serverContractNo | VARCHAR(255)  | YES  |     |         | 合同编号
+   
+ orderListStatus  | INT(10)       | YES  |     |         | 订单状态    
+ other            | VARCHAR(2048) | YES  |     |         | 备注      
+------------------+---------------+------+-----+---------+---------
+
+Table: Paper
+-------------+---------------+------+-----+---------+---------
+ Field       | Type          | Null | Key | Default | Remarks 
+-------------+---------------+------+-----+---------+---------
+ id          | INT(10)       | NO   | PRI |         |         
+ content     | VARCHAR(2048) | YES  |     |         | 内容      
+ User_id     | INT(10)       | NO   | PRI | 0       |         
+ title       | VARCHAR(255)  | YES  |     |         | 标题      
+ type        | VARCHAR(45)   | YES  |     |         | 试卷类型    
+ createTime  | DATETIME(19)  | YES  |     |         | 创建时间    
+ changTime   | DATETIME(19)  | YES  |     |         | 更新时间    
+ releaseTime | DATETIME(19)  | YES  |     |         | 发布时间    
+ Status_id   | INT(10)       | NO   | PRI |         |         
+ Type_id     | INT(10)       | NO   | PRI |         |         
+-------------+---------------+------+-----+---------+---------
+
+Table: Permission
+--------------------+---------------+------+-----+---------+---------
+ Field              | Type          | Null | Key | Default | Remarks 
+--------------------+---------------+------+-----+---------+---------
+ id                 | INT(10)       | NO   | PRI |         | 权限      
+ group              | VARCHAR(45)   | YES  |     |         | 权限组     
+ permissionName     | VARCHAR(45)   | YES  |     |         | 权限名     
+ permissionDisctipt | VARCHAR(1024) | YES  |     |         | 权限描述    
+--------------------+---------------+------+-----+---------+---------
+
+Table: PersonVideo
+-----------+---------------+------+-----+---------+---------
+ Field     | Type          | Null | Key | Default | Remarks 
+-----------+---------------+------+-----+---------+---------
+ id        | INT(10)       | NO   | PRI |         | 个人视频    
+ userId    | INT(10)       | YES  |     |         | 用户ID    
+ lifeVideo | VARCHAR(1024) | YES  |     |         | 生活视频    
+ workVideo | VARCHAR(1024) | YES  |     |         | 职业视频    
+-----------+---------------+------+-----+---------+---------
+
+Table: Question
+------------------+---------------+------+-----+---------+---------
+ Field            | Type          | Null | Key | Default | Remarks 
+------------------+---------------+------+-----+---------+---------
+ id               | INT(10)       | NO   | PRI |         |         
+ serial           | INT(10)       | YES  |     |         |         
+ content          | VARCHAR(2048) | YES  |     |         |         
+ file             | VARCHAR(255)  | YES  |     |         |         
+ question_Type_id | INT(10)       | NO   | PRI | 0       | 试题类型
+（简答、选择、视频J、音频J、图片J、视频X、音频X、图片X）
+ result_Type_id1  | INT(10)       | NO   | PRI | 0       | 结果类型（文本，视频，音频，图片）
+ Paper_id         | INT(10)       | NO   | PRI | 0       | 试卷id    
+------------------+---------------+------+-----+---------+---------
+
+Table: RobList
+--------+---------+------+-----+---------+---------
+ Field  | Type    | Null | Key | Default | Remarks 
+--------+---------+------+-----+---------+---------
+ id     | INT(10) | NO   | PRI |         | id      
+ userId | INT(10) | YES  |     |         | 月嫂用户id  
+ needId | INT(10) | YES  |     |         | 需求列表id  
+--------+---------+------+-----+---------+---------
+
+Table: Select
+--------------+---------------+------+-----+---------+---------
+ Field        | Type          | Null | Key | Default | Remarks 
+--------------+---------------+------+-----+---------+---------
+ id           | INT(10)       | NO   | PRI |         |         
+ serial       | VARCHAR(6)    | YES  |     |         | 顺序      
+ content      | VARCHAR(2048) | YES  |     |         | 选题      
+ file         | VARCHAR(255)  | YES  |     |         | 包含文件    
+ command      | VARCHAR(255)  | YES  |     |         | 操作指令【comm parm】
+ Question_id  | INT(10)       | NO   | PRI | 0       |         
+ file_Type_id | INT(10)       | NO   | PRI | 0       |         
+ selectDo     | VARCHAR(1024) | YES  |     |         | 选择后执行命令 
+--------------+---------------+------+-----+---------+---------
+
+Table: ServerExperience
+---------------+---------------+------+-----+---------+---------
+ Field         | Type          | Null | Key | Default | Remarks 
+---------------+---------------+------+-----+---------+---------
+ id            | INT(10)       | NO   | PRI |         | 从业履历    
+ userId        | VARCHAR(45)   | YES  |     |         |         
+ ServerObject  | VARCHAR(1024) | YES  |     |         | 服务对象    
+ ServerContent | VARCHAR(2048) | YES  |     |         | 服务内容    
+ ServerDuring  | VARCHAR(1024) | YES  |     |         | 服务时间段   
+ ServerMobile  | VARCHAR(45)   | YES  |     |         | 服务人联系电话 
+---------------+---------------+------+-----+---------+---------
+
+Table: StatusAll
+----------------+---------------+------+-----+---------+---------
+ Field          | Type          | Null | Key | Default | Remarks 
+----------------+---------------+------+-----+---------+---------
+ id             | INT(10)       | NO   | PRI |         |         
+ group          | VARCHAR(45)   | YES  |     |         | 状态分组    
+ statusName     | VARCHAR(45)   | YES  |     |         | 状态名称    
+ statusDiscript | VARCHAR(1024) | YES  |     |         | 状态描述    
+----------------+---------------+------+-----+---------+---------
+
+Table: TechnicalAbility
+-------------+-------------+------+-----+---------+---------
+ Field       | Type        | Null | Key | Default | Remarks 
+-------------+-------------+------+-----+---------+---------
+ id          | INT(10)     | NO   | PRI |         | 技能      
+ userId      | VARCHAR(45) | YES  |     |         |         
+ AbilityName | VARCHAR(45) | YES  |     |         | 技能名称    
+ AbilityType | INT(10)     | YES  |     |         | 技能分类    
+-------------+-------------+------+-----+---------+---------
+
+Table: TopicList
+------------------+---------------+------+-----+---------+---------
+ Field            | Type          | Null | Key | Default | Remarks 
+------------------+---------------+------+-----+---------+---------
+ id               | INT(10)       | NO   | PRI |         |         
+ topicListTitle   | VARCHAR(1024) | YES  |     | 暂无      | 标题      
+ topicListSubhead | VARCHAR(2048) | YES  |     | 暂无      | 副标题     
+ topicListUrl     | VARCHAR(1024) | YES  |     |         | 地址      
+ topicListImage   | VARCHAR(1024) | YES  |     |         | 配图      
+ topicListType    | INT(10)       | YES  |     |         | 分类      
+ topicListCreate  | DATETIME(19)  | YES  |     |         | 创建时间    
+ topicListUpdate  | DATETIME(19)  | YES  |     |         | 更新时间    
+ topicListKeyword | TEXT(65535)   | YES  |     |         | 关键词     
+------------------+---------------+------+-----+---------+---------
+
+Table: Training
+------------------+---------------+------+-----+---------+---------
+ Field            | Type          | Null | Key | Default | Remarks 
+------------------+---------------+------+-----+---------+---------
+ id               | INT(10)       | NO   | PRI |         | 培训经历    
+ userId           | INT(10)       | YES  |     |         |         
+ TrainingDuring   | VARCHAR(1024) | YES  |     |         | 培训周期    
+ OrganizationName | VARCHAR(1024) | YES  |     |         | 培训机构    
+ TrainingContent  | VARCHAR(45)   | YES  |     |         | 培训名称    
+ TrainingObject   | VARCHAR(2048) | YES  |     |         | 培训科目    
+ TrainingGrade    | VARCHAR(45)   | YES  |     |         | 培训等级    
+ TrainingResult   | VARCHAR(45)   | YES  |     |         | 培训结果（合格或分数）
+ TrainingImg      | VARCHAR(2048) | YES  |     |         | 证书照片或培训照片
+------------------+---------------+------+-----+---------+---------
+
+Table: TrueInfo
+----------------+------------------+------+-----+---------+---------
+ Field          | Type             | Null | Key | Default | Remarks 
+----------------+------------------+------+-----+---------+---------
+ id             | INT(10)          | NO   | PRI |         | 真实信息    
+ userId         | INT UNSIGNED(10) | YES  |     |         | 用户id    
+ xingmin        | VARCHAR(45)      | YES  |     |         | 姓名      
+ cardId         | VARCHAR(45)      | YES  |     |         | 身份证     
+ cardIdImg      | VARCHAR(1024)    | YES  |     |         | 身份证照片   
+ mobile         | VARCHAR(45)      | YES  |     |         | 手机      
+ birthday       | DATE(10)         | YES  |     |         | 出生年月    
+ age            | INT(10)          | YES  |     |         | 年龄      
+ jiguan         | VARCHAR(45)      | YES  |     |         | 籍贯      
+ shuxiang       | VARCHAR(5)       | YES  |     |         | 属相      
+ hight          | FLOAT(12)        | YES  |     |         | 身高      
+ study          | VARCHAR(45)      | YES  |     |         | 学历      
+ site           | VARCHAR(45)      | YES  |     |         | 岗位      
+ workExperience | VARCHAR(45)      | YES  |     |         | 工作经验    
+ spect          | VARCHAR(2048)    | YES  |     |         | 特殊技能    
+ salary         | VARCHAR(45)      | YES  |     |         | 薪水      
+ talkAbality    | VARCHAR(45)      | YES  |     |         | 沟通能力    
+ face           | VARCHAR(45)      | YES  |     |         | 面相      
+ language       | VARCHAR(45)      | YES  |     |         | 普通话     
+ etiquette      | VARCHAR(45)      | YES  |     |         | 礼仪      
+ total          | FLOAT(12)        | YES  |     |         | 总分      
+ other          | VARCHAR(2018)    | YES  |     |         | 备注      
+ isverifyStatus | INT(10)          | YES  |     | 400001  | 审核状态    
+ createDate     | DATETIME(19)     | YES  |     |         | 创建日期    
+ changDate      | DATETIME(19)     | YES  |     |         | 修改日期    
+ homeCount      | INT(10)          | YES  |     |         | 服务家庭数量  
+ married        | VARCHAR(45)      | YES  |     |         | 婚育状况    
+ city           | VARCHAR(45)      | YES  |     |         | 所在城市    
+ certificate    | VARCHAR(4095)    | YES  |     |         | 获得证书    
+ tech           | VARCHAR(4095)    | YES  |     |         | 技能      
+----------------+------------------+------+-----+---------+---------
+
+Table: TypeGroup
+--------------+---------------+------+-----+---------+---------
+ Field        | Type          | Null | Key | Default | Remarks 
+--------------+---------------+------+-----+---------+---------
+ id           | INT(10)       | NO   | PRI |         | 分类      
+ group        | VARCHAR(45)   | YES  |     |         | 分类标识    
+ typeName     | VARCHAR(45)   | YES  |     |         | 分类名称    
+ typeDiscript | VARCHAR(1024) | YES  |     |         | 分类描述    
+--------------+---------------+------+-----+---------+---------
+
+Table: User
+--------------+--------------+------+-----+---------+---------
+ Field        | Type         | Null | Key | Default | Remarks 
+--------------+--------------+------+-----+---------+---------
+ id           | INT(10)      | NO   | PRI |         | 用户ID    
+ userName     | VARCHAR(45)  | YES  |     |         | 用户名     
+ userPassword | VARCHAR(45)  | YES  |     |         | 密码
+     
+ statusId     | INT(10)      | YES  |     |         | 状态      
+ typeId       | INT(10)      | YES  |     |         | 用户分类    
+ permissionId | INT(10)      | YES  |     |         | 用户状态    
+ plantformId  | INT(10)      | YES  |     |         | 平台id    
+ wxId         | VARCHAR(255) | YES  |     |         | 微信号     
+ qqId         | VARCHAR(255) | YES  |     |         | Quid    
+--------------+--------------+------+-----+---------+---------
+
+Table: WorkRecordItem
+-------------------------+---------------+------+-----+---------+---------
+ Field                   | Type          | Null | Key | Default | Remarks 
+-------------------------+---------------+------+-----+---------+---------
+ id                      | INT(10)       | NO   | PRI |         |         
+ workRecordItemType      | INT(10)       | YES  |     |         | 记录分类    
+ workRecordItemName      | VARCHAR(1024) | YES  |     |         | 记录项名称   
+ workRecordItemValueType | INT(10)       | YES  |     |         | 记录值类型（字符串，数字，单选项，多选项）
+ workRecordItemSelect    | TEXT(65535)   | YES  |     |         | 选项(‘@#$’分隔符)
+-------------------------+---------------+------+-----+---------+---------
+
+Table: WorkRecordList
+----------------------+---------------+------+-----+---------+---------
+ Field                | Type          | Null | Key | Default | Remarks 
+----------------------+---------------+------+-----+---------+---------
+ id                   | INT(10)       | NO   | PRI |         |         
+ orderListId          | INT(10)       | YES  |     |         | 订单号     
+ workRecordItemId     | INT(10)       | YES  |     |         | 记录项编号   
+ workRecordListValue  | VARCHAR(2048) | YES  |     |         | 记录结果    
+ workRecordListOther  | VARCHAR(2048) | YES  |     |         | 其他备注    
+ workerId             | INT(10)       | YES  |     |         | 记录人ID   
+ workRecordListDate   | DATETIME(19)  | YES  |     |         | 记录时间    
+ workRecordListDay    | DATE(10)      | YES  |     |         | 记录天     
+ workRecordListImages | VARCHAR(4095) | YES  |     |         | 照片组     
+ workServerId         | INT(10)       | YES  |     | 0       | 记录对象id  
+ workRecordType       | INT(10)       | YES  |     | 0       | 记录类型（妈妈，宝宝）
+ workRecordItemName   | VARCHAR(2048) | YES  |     |         | 记录项名称   
+----------------------+---------------+------+-----+---------+---------
+

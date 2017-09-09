@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/mL"
+        android:gravity="center">
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:id="@+id/apply_backICO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="{ion-chevron-left}"
+            android:textAlignment="center"
+            android:textColor="@color/CW"
+            android:textSize="32dp"></com.joanzapata.iconify.widget.IconTextView>
+
+        <TextView
+            android:id="@+id/apply_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:gravity="center"
+            android:text="我要请假"
+            android:textColor="@color/CW"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/apply_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/clean"
+            android:text=""
+            android:textColor="@color/CW" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/apply_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:text="起始时间" />
+
+    <Button
+        android:id="@+id/apply_end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:text="结束时间" />
+
+    <EditText
+        android:id="@+id/apply_reason"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:ems="10"
+        android:hint="原因（200字以内）"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/apply_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_blue"
+        android:text="提交"
+        android:textColor="@color/CW" />
+</LinearLayout>

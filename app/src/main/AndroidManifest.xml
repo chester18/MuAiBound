@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.maternity.muaiwork" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/deskico"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+
+        android:theme="@style/AppTheme"
+        android:name=".activity.user.DetailServerExperienceActivity$MuAiApplication">
+
+        <meta-data android:name="Mob-AppKey" android:value="20937878f41b6"/>
+        <meta-data android:name="Mob-AppSecret" android:value="1177a9856205153ce5417f883eddc525"/>
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="bKmpTblvzmtwI8FnnzNwhEv1T4ihgH75" />
+        <meta-data
+            android:name="BaiduMobAd_STAT_ID"
+            android:value="369cab6e64"/>
+        <meta-data
+            android:name="BaiduMobAd_EXECPTION_LOG"
+            android:value="true"/>
+        <meta-data
+            android:name="BaiduMobAd_CHANNEL"
+            android:value="Baidu Market"/>
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
+        </service>
+        <activity android:name=".activity.user.MAWelcomActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.user.UserLoginActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.user.UserRegistActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.user.MyAccountActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.user.ListCertificateActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.user.ListHomeMemberActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.user.ListInsurancePolicyActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.user.ListServerExperienceActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.user.ListTechnicalAbilityActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.user.ListMedicalExaminationActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.user.ListTrainingActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.user.DetailCertificateActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.user.DetailHomeMemberActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.user.DetailInsurancePolicyActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.user.DetailMedicalExaminationActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.user.DetailServerExperienceActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.user.DetailTechnicalAbilityActivity"
+            android:screenOrientation="portrait" ></activity>
+        <activity android:name=".activity.user.DetailTrainingActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.user.DetailUserInfoActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.paper.PaperActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.user.CompanyActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.user.MuAiMainTabActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.order.OrderDetailActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.other.MyRedpackageActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.other.MyScheduleActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.study.WebViewActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.study.StudyListActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.work.ApplyLeaveActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.work.MyWorkOrderActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.order.NeedDetailActivity"
+            ></activity>
+        <activity android:name=".activity.work.RequestLeaveActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.work.DeviceCheckActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.work.WorkRecorderActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.work.WorkHistoryActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.study.MapDictionaryActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+
+    </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!--<uses-permission android:name="android.permission.INTERNET"/>-->
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+</manifest>

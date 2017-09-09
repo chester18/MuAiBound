@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:id="@+id/cell_ico_layout"
+
+    >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+
+        android:gravity="right|center_vertical"
+        android:id="@+id/ico_img_lay"
+        android:layout_weight="1">
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/ico_img"
+            android:layout_weight="2"
+            android:text="{ion-ios-personadd-outline}"
+            android:textSize="36sp"
+            android:gravity="right|center_vertical"
+            android:layout_marginRight="5dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+
+        android:gravity="center"
+        android:id="@+id/ico_main_lay"
+        android:layout_weight="2">
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:text="T："
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ico_main"
+            android:textSize="18sp"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/cardview_dark_background" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+
+        android:gravity="left|center_vertical"
+        android:id="@+id/ico_text_lay"
+        android:layout_weight="4">
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:text="TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ico_text"
+            android:layout_weight="4"
+            android:textSize="18sp"
+            android:textColor="@color/cardview_dark_background" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+
+        android:gravity="left|center_vertical"
+        android:id="@+id/ico_detail_lay"
+        android:layout_weight="4">
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ico_detail"
+            android:layout_weight="1"
+            android:textAlignment="viewEnd"
+            android:textColor="@android:color/darker_gray" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+
+        android:gravity="right|center_vertical"
+        android:layout_gravity="center"
+        android:id="@+id/ico_arraw_lay"
+        android:layout_weight="1">
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right|center"
+            android:text="{md-chevron-right}"
+
+            android:id="@+id/ico_arraw"
+            android:layout_marginRight="10dp"></com.joanzapata.iconify.widget.IconTextView>
+    </LinearLayout>
+</LinearLayout>

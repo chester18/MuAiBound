@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@color/mL"
+        android:gravity="left|center_vertical">
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:text="{ion-ios-contact-outline}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/use"
+            android:textSize="36dp"
+            android:textColor="@color/mR"
+            android:layout_marginLeft="20dp" />
+
+        <TextView
+            android:text="me"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/acc_name"
+            android:textColor="@color/cardview_light_background" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom|right"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <TextView
+                android:text="申请认证"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/submitBtn"
+                android:background="@color/clean"
+                tools:textColor="@color/cardview_light_background"
+                android:gravity="right" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:text="第一步：信息录入"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:id="@+id/acce_input_But"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:textSize="16sp" />
+
+    <Button
+        android:text="第二步：初试问卷"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:id="@+id/acce_paper"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:textSize="16sp" />
+
+    <Button
+        android:text="第三步：现场面试"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:id="@+id/acce_face"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:textSize="16sp" />
+
+    <Button
+        android:text="第四步：开始工作"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:id="@+id/acce_start_work"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:textSize="16sp" />
+
+
+</LinearLayout>

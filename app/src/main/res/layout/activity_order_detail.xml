@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ftitle"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/mL"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:id="@+id/order_detail_backICO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:text="{ion-chevron-left}"
+            android:textAlignment="center"
+            android:textColor="@color/CW"
+            android:textSize="32dp"
+            ></com.joanzapata.iconify.widget.IconTextView>
+
+        <TextView
+            android:id="@+id/order_detail_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="订单详情"
+            android:textColor="@color/CW"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/paper_timer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/CW"
+            android:textSize="14dp"></TextView>
+    </LinearLayout>
+
+
+
+
+                <ListView
+                    android:id="@+id/order_detail_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="420dp"/>
+
+
+            <Button
+                android:id="@+id/order_detail_get"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/line_radio25_blue"
+                android:text="立即抢单"
+                android:textColor="@color/orange1"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+
+</LinearLayout>

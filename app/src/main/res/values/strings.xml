@@ -1,0 +1,103 @@
+<resources>
+    <string name="app_name">姆爱邦</string>
+    <string name="mob_Appkey">20937878f41b6</string>
+    <string name="mob_App_Secret">1177a9856205153ce5417f883eddc525</string>
+    <string-array name="Zodiac">
+        <item>鼠</item>
+        <item>牛</item>
+        <item>虎</item>
+        <item>兔</item>
+        <item>龙</item>
+        <item>蛇</item>
+        <item>马</item>
+        <item>羊</item>
+        <item>猴</item>
+        <item>鸡</item>
+        <item>狗</item>
+        <item>猪</item>
+    </string-array>
+    
+    <string-array name="Constellation">
+        <item>白羊座</item>
+        <item>金牛座</item>
+        <item>双子座</item>
+        <item>巨蟹座</item>
+        <item>狮子座</item>
+        <item>处女座</item>
+        <item>天秤座</item>
+        <item>天蝎座</item>
+        <item>射手座</item>
+        <item>摩羯座</item>
+        <item>水瓶座</item>
+        <item>双鱼座</item>
+    </string-array>
+    <string-array name="sheng">
+        <item>河北省</item>
+        <item>山西省</item>
+        <item>辽宁省</item>
+        <item>吉林省</item>
+        <item>黑龙江省</item>
+        <item>江苏省</item>
+        <item>浙江省</item>
+        <item>安徽省</item>
+        <item>福建省</item>
+        <item>江西省</item>
+        <item>山东省</item>
+        <item>河南省</item>
+        <item>湖北省</item>
+        <item>湖南省</item>
+        <item>广东省</item>
+        <item>海南省</item>
+        <item>四川省</item>
+        <item>贵州省</item>
+        <item>云南省</item>
+        <item>陕西省</item>
+        <item>甘肃省</item>
+        <item>青海省</item>
+        <item>台湾省</item>
+        <item>北京市</item>
+        <item>天津市</item>
+        <item>上海市</item>
+        <item>重庆市</item>
+        <item>广西壮族自治区</item>
+        <item>内蒙古自治区</item>
+        <item>西藏自治区</item>
+        <item>宁夏回族自治区</item>
+        <item>新疆维吾尔自治区</item>
+        <item>香港特别行政区</item>
+        <item>澳门特别行政区</item>
+
+    </string-array>
+
+    <string name="a11">北京市</string>
+    <string name="a12">天津市</string>
+    <string name="a13">河北省</string>
+    <string name="a14">山西省</string>
+    <string name="a15">内蒙古自治区</string>
+    <string name="a21">辽宁省</string>
+    <string name="a22">吉林省</string>
+    <string name="a23">黑龙江省</string>
+    <string name="a31">上海市</string>
+    <string name="a32">江苏省</string>
+    <string name="a33">浙江省</string>
+    <string name="a34">安徽省</string>
+    <string name="a35">福建省</string>
+    <string name="a36">江西省</string>
+    <string name="a37">山东省</string>
+    <string name="a41">河南省</string>
+    <string name="a42">湖北省</string>
+    <string name="a43">湖南省</string>
+    <string name="a44">广东省</string>
+    <string name="a45">广西省</string>
+    <string name="a46">海南省</string>
+    <string name="a50">重庆市</string>
+    <string name="a51">四川省</string>
+    <string name="a52">贵州省</string>
+    <string name="a53">云南省</string>
+    <string name="a54">西藏自治区</string>
+    <string name="a61">陕西省</string>
+    <string name="a62">甘肃省</string>
+    <string name="a63">青海省</string>
+    <string name="a64">宁夏回族自治区</string>
+    <string name="a65">新疆维吾尔自治区</string>
+</resources>

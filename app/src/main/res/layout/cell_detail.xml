@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:id="@+id/cell_detail_layout"
+
+    android:weightSum="13">
+
+    <LinearLayout
+        android:id="@+id/cell_img_lay"
+        android:layout_width="0dp"
+
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/cell_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            app:srcCompat="@mipmap/ic_launcher" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cell_main_lay"
+        android:layout_width="0dp"
+
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/cell_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="T："
+            android:textAlignment="viewEnd"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cell_text_lay"
+        android:layout_width="0dp"
+
+        android:layout_height="match_parent"
+        android:layout_marginLeft="2dp"
+        android:layout_weight="4"
+        android:gravity="left|center_vertical">
+
+        <TextView
+            android:id="@+id/cell_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="TV"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cell_detail_lay"
+        android:layout_width="0dp"
+
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:gravity="left|center_vertical">
+
+        <TextView
+            android:id="@+id/cell_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textAlignment="viewEnd"
+            android:textColor="@android:color/darker_gray" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cell_arraw_lay"
+        android:layout_width="0dp"
+
+        android:layout_height="match_parent"
+        android:layout_gravity="left|center_vertical"
+        android:layout_weight="1"
+        android:gravity="left|center_vertical">
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:id="@+id/cell_arraw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            android:text="{md-chevron-right}"></com.joanzapata.iconify.widget.IconTextView>
+    </LinearLayout>
+</LinearLayout>

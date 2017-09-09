@@ -1,0 +1,137 @@
+package com.maternity.muaiwork.fragment;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.google.gson.JsonObject;
+import com.maternity.muaiwork.R;
+import com.maternity.muaiwork.model.AnswerQuestionModel;
+import com.maternity.muaiwork.model.QuestionModel;
+import com.maternity.muaiwork.model.SelectModel;
+
+import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Created by apple on 2016/10/28.
+ */
+@ContentView(R.layout.fragment_page_txt_mulit)
+public class PageTxtMulitFragment extends PBFragment{
+    @ViewInject(R.id.atxt_mtopic)
+    TextView question;
+    @ViewInject(R.id.atxt_mlist)
+    ListView selectList;
+    List<String> selectResults;
+    BaseAdapter adapter=new BaseAdapter() {
+        @Override
+        public int getCount() {
+            return model.selectList.size();
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            SelectModel smo=model.selectList.get(i);
+            CheckBox cb=new CheckBox(getActivity());
+            cb.setTag(smo.serial);
+            cb.setText(smo.serial+ " 、"+smo.content);
+            if (selectResults.contains(smo.serial))
+            {
+                cb.setChecked(true);
+            }
+            cb.setLayoutParams(new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT,144));
+            cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    if (b)
+                    {
+                        selectResults.add(compoundButton.getTag().toString());
+                    }else {
+                        selectResults.remove(compoundButton.getTag().toString());
+                    }
+                }
+            });
+            return cb;
+        }
+    };
+
+//    public PageTxtMulitFragment(QuestionModel question) {
+//        super(question);
+//    }
+
+    public PageTxtMulitFragment() {
+        super();
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View v=x.view().inject(this, inflater, container);
+        if (answerQuestionModel!=null)
+        {
+            String re=answerQuestionModel.result;
+            selectResults= Arrays.asList(re.split(","));
+
+        }else {
+            selectResults=new ArrayList<>();
+        }
+
+        if (model!=null)
+        {
+            question.setText(model.serial+"、"+model.content);
+            selectList.setAdapter(adapter);
+        }
+        return v;
+    }
+
+    @Override
+    public AnswerQuestionModel getResult() {
+        if (answerQuestionModel==null)
+        {
+            answerQuestionModel = new AnswerQuestionModel(new JsonObject());
+            answerQuestionModel.QuestionId = model.pid;
+        }
+        String srs="";
+        for (String str:selectResults)
+        {
+            if (srs.length()>0)
+            {
+                srs=srs+","+str;
+            }else {
+                srs=str;
+            }
+
+        }
+        answerQuestionModel.result=srs;
+        if(answerQuestionModel.result.length()==0)
+        {
+            return null;
+        }
+        return answerQuestionModel;
+    }
+}
